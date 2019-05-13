@@ -2,22 +2,17 @@ package utility.devices;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utility.Device;
 
-import java.io.File;
 import java.net.URL;
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class Android extends Device {
-    private final String APK_DIR = "\\Users\\dambik\\Documents\\Automation\\damlasekern11\\apk";
-    private final String APK_FILE = "n11.apk";
     private final String ANDROID_APP_PACKAGE = "com.dmall.mfandroid";
     private final String APP_ACTIVITY = "com.dmall.mfandroid.activity.base.Splash";
     private final int ADB_TIMEOUT = 60 * 1000;
@@ -28,8 +23,6 @@ public class Android extends Device {
 
     @Override
     public void startDriver() {
-        File appDir = new File(APK_DIR);
-        File app = new File(appDir, APK_FILE);
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.UDID, clientModel.getUdid());
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, clientModel.name());

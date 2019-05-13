@@ -2,8 +2,6 @@ package runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
@@ -12,7 +10,6 @@ import utility.User;
 import utility.devices.Android;
 import utility.devices.ClientModel;
 
-import java.lang.invoke.MethodHandles;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -25,15 +22,13 @@ import static utility.devices.ClientModel.NEXUS5X;
         /*
         *Run only a single feature set or single scenario
         */
-        tags = {"@appLogin"},
+        //tags = {"@basket"},
 
         features = {"classpath:features"},
         glue = {"stepdefinitions", "utility"},
         plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber-reports/login.json", "rerun:target/rerun/rerun.txt"})
 
 public class RunCucumberTests {
-    private static final Logger LOGGER = LogManager
-            .getLogger(MethodHandles.lookup().lookupClass());
     static Object[][] userArray = {
             {"User", NEXUS5X}
     };

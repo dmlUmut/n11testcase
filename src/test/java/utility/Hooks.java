@@ -21,7 +21,6 @@ public class Hooks {
     //Scenario Level After Hook
     @After()
     public void cleanUp(Scenario scenario) {
-        //LOGGER.debug(scenario.getStatus());
         if (scenario.isFailed()) {
             ExecutorService service = Executors.newFixedThreadPool(5);
             User.getUsers().forEach((k, v) -> {
